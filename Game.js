@@ -5,7 +5,7 @@ var myFrameRate = 30,
     floopyBard,
     myPipe,
     pipes = [],
-    gameOver
+    gameOver = false;
 function setup(){
   createCanvas(800, 600)
   floopyBard = new bird()
@@ -33,10 +33,13 @@ function pipeWork(){
   }
 }
 function scoresGameOver(){
-  gameOver = false
+ // gameOver = false
   for (i=0; i<pipes.length; i++){
     if (pipes[i].collision(floopyBard) == false){
-      score += 1
+      if(gameOver == false){
+        score += 1
+      }
+      
     }
     else if (pipes[i].collision(floopyBard) == true){
      for (i=0; i<pipes.length; i++){
